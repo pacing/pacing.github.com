@@ -9,9 +9,9 @@
   <meta name="author" content="Pacing">
 
   
-  <meta name="description" content=" 这是 H1 {% gist 3877996 %}
-{% render_partial ../README.markdown % } 这是H3
-">
+  <meta name="description" content="这是 H1 {% gist 3877996 %}
+{% render partial ../README.markdown % } 这是H3 {% pullquote %}
+Surround your paragraph with the pull quote tags. Then when &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -98,9 +98,14 @@
 <h1>这是 H1</h1>
 
 <p>{% gist 3877996 %}
-{% render_partial  ../README.markdown  %  }</p>
+{% render partial  ../README.markdown  %  }</p>
 
 <h3>这是H3</h3>
+
+<p>{% pullquote %}
+Surround your paragraph with the pull quote tags. Then when you come to
+the text you want to pull, {&#8221; surround it like this &#8220;} and that&#8217;s all there is to it.
+{% endpullquote %}</p>
 </div>
 
 
