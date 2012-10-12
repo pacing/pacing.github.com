@@ -2,15 +2,24 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[My Octopress Blog]]></title>
-  <link href="http://pacin.github.com/atom.xml" rel="self"/>
-  <link href="http://pacin.github.com/"/>
-  <updated>2012-10-12T15:15:10+08:00</updated>
-  <id>http://pacin.github.com/</id>
+  <link href="http://pacing.github.com/atom.xml" rel="self"/>
+  <link href="http://pacing.github.com/"/>
+  <updated>2012-10-12T15:20:30+08:00</updated>
+  <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Your Name]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[post title]]></title>
+    <link href="http://pacing.github.com/blog/2012/10/12/post-title/"/>
+    <updated>2012-10-12T15:20:00+08:00</updated>
+    <id>http://pacing.github.com/blog/2012/10/12/post-title</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
 </feed>
