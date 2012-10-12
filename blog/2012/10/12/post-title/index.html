@@ -9,8 +9,8 @@
   <meta name="author" content="Pacing">
 
   
-  <meta name="description" content=" 这是 H1 public class C { int a = b + 3; int b = 5;
-} 这是H3
+  <meta name="description" content=" 这是 H1 {% gist 3877996 %}
+{% render_partial ../README.markdown % } 这是H3
 ">
   
 
@@ -97,12 +97,8 @@
 
 <h1>这是 H1</h1>
 
-<div><script src='https://gist.github.com/3877996.js?file='></script>
-<noscript><pre><code>public class C {
-  int a = b + 3;
-  int b = 5;
-}</code></pre></noscript></div>
-
+<p>{% gist 3877996 %}
+{% render_partial  ../README.markdown  %  }</p>
 
 <h3>这是H3</h3>
 </div>
