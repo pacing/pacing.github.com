@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-10-13T00:39:48+08:00</updated>
+  <updated>2012-10-13T00:42:50+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -30,6 +30,22 @@
 <h3>选择你的枷锁，然后痛并快乐着</h3>
 
 <h3>即使被锁着，也要在舞曲开始的时候让自己优雅，跳好人生这场舞</h3>
+
+<p><section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts"></p>
+
+<pre><code>  &lt;li class="post"&gt;
+    &lt;a href="http://pacing.github.com/blog/2012/10/12/ren-sheng-shi-%5B%3F%5D-chang-dai-zhao-jia-suo-de-wu-dao/"&gt;人生是一场带着枷锁的舞蹈&lt;/a&gt;
+  &lt;/li&gt;
+
+  &lt;li class="post"&gt;
+    &lt;a href="http://pacing.github.com/blog/2012/10/12/post-title/"&gt;post title&lt;/a&gt;
+  &lt;/li&gt;
+</code></pre>
+
+<p>  </ul>
+</section></p>
 ]]></content>
   </entry>
   
