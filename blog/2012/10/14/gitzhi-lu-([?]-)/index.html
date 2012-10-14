@@ -5,13 +5,15 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>post title - Pacing's Blog</title>
+  <title>Git之路（一） - Pacing's Blog</title>
   <meta name="author" content="Pacing">
 
   
-  <meta name="description" content="这是 H1 public class C { int a = b + 3; int b = 5;
-} 这是H3 Surround your paragraph with the pull quote tags. Then when you come to
-the text you want to &hellip;">
+  <meta name="description" content="最近在学习Git，至于分布式版本控制系统Git的强大之处，我就不再赘述了，google之。 现在开始我们Git世界的旅行吧
+1.安装 1
+2
+sudo apt-get install git
+sudo apt-get install git-doc git-svn git-email git- &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +22,7 @@ the text you want to &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://pacing.github.com/blog/2012/10/12/post-title/">
+  <link rel="canonical" href="http://pacing.github.com/blog/2012/10/14/gitzhi-lu-%28%5B%3F%5D-%29/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -70,7 +72,7 @@ the text you want to &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Post Title</h1>
+      <h1 class="entry-title">Git之路（一）</h1>
     
     
       <p class="meta">
@@ -86,7 +88,7 @@ the text you want to &hellip;">
   
 
 
-<time datetime="2012-10-12T15:20:00+08:00" pubdate data-updated="true">Oct 12<span>th</span>, 2012</time>
+<time datetime="2012-10-14T21:09:00+08:00" pubdate data-updated="true">Oct 14<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -95,24 +97,78 @@ the text you want to &hellip;">
   </header>
 
 
-<div class="entry-content"><!-- more -->
+<div class="entry-content"><blockquote><p>最近在学习Git，至于分布式版本控制系统Git的强大之处，我就不再赘述了，google之。</p>
+
+<p>现在开始我们Git世界的旅行吧
+1.安装</p>
+
+<blockquote></blockquote></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install git
+</span><span class='line'>sudo apt-get install git-doc git-svn git-email git-gui gitk</span></code></pre></td></tr></table></div></figure>
 
 
-<h1>这是 H1</h1>
-
-<div><script src='https://gist.github.com/3877996.js?file='></script>
-<noscript><pre><code>public class C {
-  int a = b + 3;
-  int b = 5;
-}</code></pre></noscript></div>
 
 
-<h3>这是H3</h3>
+<!-- more -->
 
-<p><span class='pullquote-right' data-pullquote='surround it like this'>
-Surround your paragraph with the pull quote tags. Then when you come to
-the text you want to pull, surround it like this and that&#8217;s all there is to it.
-</span></p>
+
+<blockquote><p>2.Git初始化</p>
+
+<blockquote></blockquote></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git --version (查询git版本)
+</span><span class='line'>git config --global user.name "pacing"
+</span><span class='line'>git config --global user.email "email@x.com"
+</span><span class='line'>>></span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>3.开始第一次实践</p>
+
+<blockquote></blockquote></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir demo
+</span><span class='line'>cd demo
+</span><span class='line'>git init
+</span><span class='line'>>></span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><blockquote><blockquote><p>以上步骤在git 1.6.5以上的版本可以用命令行 git init demo 代替</p></blockquote></blockquote></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ls -aF
+</span><span class='line'>>></span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><blockquote><p>这个命令行显示当前文件目录，其中有一个.git/隐藏目录,称为Git版本库</p></blockquote></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo "Hello" > welcome.txt
+</span><span class='line'>git add welcome.txt
+</span><span class='line'>git commit -m "initialized"
+</span><span class='line'>>></span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>4.总结一下</p>
+
+<blockquote><p>步骤二，我们设置了该linux用户名下的Git用户名及邮箱地址</p>
+
+<p>步骤三，我们建立了一个demo文件夹（称之为git工作区）并在文件夹内初始化了git版本库，之后新建了内容为Hello
+的welcomet.xt文本文件。接下来git add welcome.txt命令将工作区文件welcome.txt提交到了暂存区，git commit -m &#8220;initialized&#8221;命令将暂存区文件welcome.txt提交到版本库。</p></blockquote></blockquote>
 </div>
 
 
@@ -135,7 +191,7 @@ the text you want to pull, surround it like this and that&#8217;s all there is t
   
 
 
-<time datetime="2012-10-12T15:20:00+08:00" pubdate data-updated="true">Oct 12<span>th</span>, 2012</time>
+<time datetime="2012-10-14T21:09:00+08:00" pubdate data-updated="true">Oct 14<span>th</span>, 2012</time>
       
 
 
@@ -152,8 +208,8 @@ the text you want to pull, surround it like this and that&#8217;s all there is t
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2012/10/12/ren-sheng-shi-%5B%3F%5D-chang-dai-zhao-jia-suo-de-wu-dao/" title="Previous Post: 人生是一场带着枷锁的舞蹈">&laquo; 人生是一场带着枷锁的舞蹈</a>
       
-        <a class="basic-alignment right" href="/blog/2012/10/12/ren-sheng-shi-%5B%3F%5D-chang-dai-zhao-jia-suo-de-wu-dao/" title="Next Post: 人生是一场带着枷锁的舞蹈">人生是一场带着枷锁的舞蹈 &raquo;</a>
       
     </p>
   </footer>
@@ -212,8 +268,8 @@ the text you want to pull, surround it like this and that&#8217;s all there is t
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://pacing.github.com/blog/2012/10/12/post-title/';
-        var disqus_url = 'http://pacing.github.com/blog/2012/10/12/post-title/';
+        var disqus_identifier = 'http://pacing.github.com/blog/2012/10/14/gitzhi-lu-%28%5B%3F%5D-%29/';
+        var disqus_url = 'http://pacing.github.com/blog/2012/10/14/gitzhi-lu-%28%5B%3F%5D-%29/';
         var disqus_script = 'embed.js';
       
     (function () {

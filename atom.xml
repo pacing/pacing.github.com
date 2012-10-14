@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-10-13T03:30:17+08:00</updated>
+  <updated>2012-10-14T22:00:16+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -12,6 +12,86 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Git之路（一）]]></title>
+    <link href="http://pacing.github.com/blog/2012/10/14/gitzhi-lu-%28%5B%3F%5D-%29/"/>
+    <updated>2012-10-14T21:09:00+08:00</updated>
+    <id>http://pacing.github.com/blog/2012/10/14/gitzhi-lu-([?]-)</id>
+    <content type="html"><![CDATA[<blockquote><p>最近在学习Git，至于分布式版本控制系统Git的强大之处，我就不再赘述了，google之。</p>
+
+<p>现在开始我们Git世界的旅行吧
+1.安装</p>
+
+<blockquote></blockquote></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install git
+</span><span class='line'>sudo apt-get install git-doc git-svn git-email git-gui gitk</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- more -->
+
+
+<blockquote><p>2.Git初始化</p>
+
+<blockquote></blockquote></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git --version (查询git版本)
+</span><span class='line'>git config --global user.name "pacing"
+</span><span class='line'>git config --global user.email "email@x.com"
+</span><span class='line'>>></span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>3.开始第一次实践</p>
+
+<blockquote></blockquote></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir demo
+</span><span class='line'>cd demo
+</span><span class='line'>git init
+</span><span class='line'>>></span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><blockquote><blockquote><p>以上步骤在git 1.6.5以上的版本可以用命令行 git init demo 代替</p></blockquote></blockquote></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ls -aF
+</span><span class='line'>>></span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><blockquote><p>这个命令行显示当前文件目录，其中有一个.git/隐藏目录,称为Git版本库</p></blockquote></blockquote>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo "Hello" > welcome.txt
+</span><span class='line'>git add welcome.txt
+</span><span class='line'>git commit -m "initialized"
+</span><span class='line'>>></span></code></pre></td></tr></table></div></figure>
+
+
+<blockquote><p>4.总结一下</p>
+
+<blockquote><p>步骤二，我们设置了该linux用户名下的Git用户名及邮箱地址</p>
+
+<p>步骤三，我们建立了一个demo文件夹（称之为git工作区）并在文件夹内初始化了git版本库，之后新建了内容为Hello
+的welcomet.xt文本文件。接下来git add welcome.txt命令将工作区文件welcome.txt提交到了暂存区，git commit -m &#8220;initialized&#8221;命令将暂存区文件welcome.txt提交到版本库。</p></blockquote></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[人生是一场带着枷锁的舞蹈]]></title>
