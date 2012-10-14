@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-10-14T22:02:56+08:00</updated>
+  <updated>2012-10-14T22:04:38+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -19,8 +19,9 @@
     <updated>2012-10-14T21:09:00+08:00</updated>
     <id>http://pacing.github.com/blog/2012/10/14/gitzhi-lu-([?]-)</id>
     <content type="html"><![CDATA[<p>最近在学习Git，至于分布式版本控制系统Git的强大之处，我就不再赘述了，google之。
-现在开始我们Git世界的旅行吧
-1.安装</p>
+现在开始我们Git世界的旅行吧</p>
+
+<p>1.安装</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -71,9 +72,11 @@
 </span><span class='line'>git commit -m "initialized"</span></code></pre></td></tr></table></div></figure>
 
 
-<p>4.总结一下
-步骤二，我们设置了该linux用户名下的Git用户名及邮箱地址
-步骤三，我们建立了一个demo文件夹（称之为git工作区）并在文件夹内初始化了git版本库，之后新建了内容为Hello
+<p>4.总结一下</p>
+
+<p>步骤二，我们设置了该linux用户名下的Git用户名及邮箱地址</p>
+
+<p>步骤三，我们建立了一个demo文件夹（称之为git工作区）并在文件夹内初始化了git版本库，之后新建了内容为Hello
 的welcomet.xt文本文件。接下来git add welcome.txt命令将工作区文件welcome.txt提交到了暂存区，git commit -m &#8220;initialized&#8221;命令将暂存区文件welcome.txt提交到版本库。</p>
 ]]></content>
   </entry>
