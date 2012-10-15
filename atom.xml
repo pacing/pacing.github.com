@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-10-15T21:55:50+08:00</updated>
+  <updated>2012-10-15T21:58:18+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -19,6 +19,9 @@
     <updated>2012-10-15T21:46:00+08:00</updated>
     <id>http://pacing.github.com/blog/2012/10/15/gitzhi-lu-(er-)</id>
     <content type="html"><![CDATA[<p>上一篇，我们使用了git init，git add和git commit三个命令来创建一个git版本库。</p>
+
+<!--more-->
+
 
 <p>git init 初始化了一个版本库。</p>
 
