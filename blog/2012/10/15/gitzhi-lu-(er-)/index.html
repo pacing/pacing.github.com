@@ -136,18 +136,18 @@
 <span class='line-number'>26</span>
 <span class='line-number'>27</span>
 <span class='line-number'>28</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>root@pacing-Aspire-4741:/home/pacing/workspace/sample# git init
-</span><span class='line'>root@pacing-Aspire-4741:/home/pacing/workspace/sample# touch welcome.txt
-</span><span class='line'>root@pacing-Aspire-4741:/home/pacing/workspace/sample# echo "Hello." >> welcome.txt
-</span><span class='line'>root@pacing-Aspire-4741:/home/pacing/workspace/sample# git add
+</pre></td><td class='code'><pre><code class=''><span class='line'># git init
+</span><span class='line'># touch welcome.txt
+</span><span class='line'># echo "Hello." >> welcome.txt
+</span><span class='line'># git add
 </span><span class='line'>.git/        welcome.txt
-</span><span class='line'>root@pacing-Aspire-4741:/home/pacing/workspace/sample# git add welcome.txt
-</span><span class='line'>root@pacing-Aspire-4741:/home/pacing/workspace/sample# git commit -m "first commit" 
+</span><span class='line'># git add welcome.txt
+</span><span class='line'># git commit -m "first commit" 
 </span><span class='line'>[master (root-commit) 4bab956] first commit
 </span><span class='line'> 1 file changed, 1 insertion(+)
 </span><span class='line'> create mode 100644 welcome.txt
-</span><span class='line'>root@pacing-Aspire-4741:/home/pacing/workspace/sample# echo "Nice to meet you." >> welcome.txt
-</span><span class='line'>root@pacing-Aspire-4741:/home/pacing/workspace/sample# git diff
+</span><span class='line'># echo "Nice to meet you." >> welcome.txt
+</span><span class='line'># git diff
 </span><span class='line'>diff --git a/welcome.txt b/welcome.txt
 </span><span class='line'>index 18832d3..fd3c069 100644
 </span><span class='line'>--- a/welcome.txt
@@ -155,7 +155,7 @@
 </span><span class='line'>@@ -1 +1,2 @@
 </span><span class='line'> Hello.
 </span><span class='line'>+Nice to meet you.
-</span><span class='line'>root@pacing-Aspire-4741:/home/pacing/workspace/sample# git commit -m "second commit"
+</span><span class='line'># git commit -m "second commit"
 </span><span class='line'># On branch master
 </span><span class='line'># Changes not staged for commit:
 </span><span class='line'>#   (use "git add &lt;file>..." to update what will be committed)
@@ -175,11 +175,11 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>root@pacing-Aspire-4741:/home/pacing/workspace/sample# git add welcome.txt
-</span><span class='line'>root@pacing-Aspire-4741:/home/pacing/workspace/sample# git commit -m "second commit"
+</pre></td><td class='code'><pre><code class=''><span class='line'># git add welcome.txt
+</span><span class='line'># git commit -m "second commit"
 </span><span class='line'>[master 9226a29] second commit
 </span><span class='line'> 1 file changed, 1 insertion(+)
-</span><span class='line'>root@pacing-Aspire-4741:/home/pacing/workspace/sample# git log --pretty=oneline
+</span><span class='line'># git log --pretty=oneline
 </span><span class='line'>9226a29471e7c7913a478996ab29a77f43584d7c second commit
 </span><span class='line'>4bab95647dae270bcb824dc3b8b5b019d623f35a first commit</span></code></pre></td></tr></table></div></figure>
 
