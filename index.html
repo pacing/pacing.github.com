@@ -9,17 +9,7 @@
   <meta name="author" content="Pacing">
 
   
-  <meta name="description" content="这一篇对Git对象进行总结。 首先看一个例子。 1
-2
-3
-4
-5
-6
-7
-8
-# git log -1 --pretty=raw
-commit 7213e9b40359e477080ed8feeb1120041cbd5ee8
-tree &hellip;">
+  <meta name="description" content="这一篇对Git对象进行总结。 首先看一个例子。 ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,7 +71,7 @@ tree &hellip;">
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/10/16/gitzhi-lu-%28san-%29/">Git之路（二）</a></h1>
+      <h1 class="entry-title"><a href="/blog/2012/10/16/gitzhi-lu-%28san-%29/">Git之路（三）</a></h1>
     
     
       <p class="meta">
@@ -110,88 +100,12 @@ tree &hellip;">
 
 <p>首先看一个例子。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># git log -1 --pretty=raw
-</span><span class='line'>commit 7213e9b40359e477080ed8feeb1120041cbd5ee8
-</span><span class='line'>tree de4ca4100e63695044400bf7e2b834d6b053a62f
-</span><span class='line'>parent 60c5a8067cadc872391a9890f89827264ca39015
-</span><span class='line'>author pacing &lt;wqy874654098@gmail.com> 1350305952 +0800
-</span><span class='line'>committer pacing &lt;wqy874654098@gmail.com> 1350305952 +0800
-</span><span class='line'>
-</span><span class='line'>    modify bye</span></code></pre></td></tr></table></div></figure>
-
-
-<p>可以看出来，在一次提交中，包含了三个SHA1哈希值来表示对象ID。</p>
-
-<p>再来一段代码。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># git log -2 --pretty=raw
-</span><span class='line'>commit 7213e9b40359e477080ed8feeb1120041cbd5ee8
-</span><span class='line'>tree de4ca4100e63695044400bf7e2b834d6b053a62f
-</span><span class='line'>parent 60c5a8067cadc872391a9890f89827264ca39015
-</span><span class='line'>author pacing &lt;wqy874654098@gmail.com> 1350305952 +0800
-</span><span class='line'>committer pacing &lt;wqy874654098@gmail.com> 1350305952 +0800
-</span><span class='line'>
-</span><span class='line'>    modify bye
-</span><span class='line'>
-</span><span class='line'>commit 60c5a8067cadc872391a9890f89827264ca39015
-</span><span class='line'>tree c722a9a8a289e99fcf2be5f658a67c8d7d94e8f7
-</span><span class='line'>author pacing &lt;wqy874654098@gmail.com> 1350305791 +0800
-</span><span class='line'>committer pacing &lt;wqy874654098@gmail.com> 1350305791 +0800
-</span><span class='line'>
-</span><span class='line'>    first commit</span></code></pre></td></tr></table></div></figure>
-
-
-<p>对比可以发现</p>
-
-<pre><code>commit ID值    对应了本次提交的唯一标识
-
-parent ID值    对应了本次提交的父提交（上一次提交的commit的ID值）
-</code></pre>
-
-<p>而  tree  ID值    对应了本次提交所对应的目录树</p>
-
-<p>git cat-file 这个命令可以来研究git对象ID。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git cat-file -p ID值   #这个命令可以显示对象的内容
-</span><span class='line'>git cat-file -t ID值   #这个命令可以显示对象的类型</span></code></pre></td></tr></table></div></figure>
-
-
-<p>由上面的例子，我们可以猜想到git版本库的大致结构。</p>
-
-<p>前一次提交的commit和后一次提交的parent的对象ID相同，所有相邻两次提交都是如此，那么就构成了一条历史追踪链，也使得版本管理成为可能。</p>
-
-<p>而每一个commit对象ID都对应了一个tree对象ID，对象ID又对个了自己的内容ID值。</p>
-
-<p>至此，我们在原理上相同了git版本库的工作流程，当然，实现很复杂。</p>
-
-<p>我们来慢慢解读。</p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/10/16/gitzhi-lu-%28san-%29/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -348,7 +262,7 @@ parent ID值    对应了本次提交的父提交（上一次提交的commit的I
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2012/10/16/gitzhi-lu-%28san-%29/">Git之路（二）</a>
+        <a href="/blog/2012/10/16/gitzhi-lu-%28san-%29/">Git之路（三）</a>
       </li>
     
       <li class="post">

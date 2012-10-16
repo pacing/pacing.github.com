@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-10-16T23:29:41+08:00</updated>
+  <updated>2012-10-16T23:32:08+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -14,13 +14,18 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Git之路（二）]]></title>
+    <title type="html"><![CDATA[Git之路（三）]]></title>
     <link href="http://pacing.github.com/blog/2012/10/16/gitzhi-lu-%28san-%29/"/>
     <updated>2012-10-16T23:18:00+08:00</updated>
     <id>http://pacing.github.com/blog/2012/10/16/gitzhi-lu-(san-)</id>
     <content type="html"><![CDATA[<p>这一篇对Git对象进行总结。</p>
 
 <p>首先看一个例子。</p>
+
+<!--more-->
+
+
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
