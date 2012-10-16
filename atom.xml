@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-10-16T23:22:14+08:00</updated>
+  <updated>2012-10-16T23:29:41+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -15,68 +15,85 @@
   
   <entry>
     <title type="html"><![CDATA[Git之路（二）]]></title>
-    <link href="http://pacing.github.com/blog/2012/10/16/gitzhi-lu-%28er-%29/"/>
+    <link href="http://pacing.github.com/blog/2012/10/16/gitzhi-lu-%28san-%29/"/>
     <updated>2012-10-16T23:18:00+08:00</updated>
-    <id>http://pacing.github.com/blog/2012/10/16/gitzhi-lu-(er-)</id>
+    <id>http://pacing.github.com/blog/2012/10/16/gitzhi-lu-(san-)</id>
     <content type="html"><![CDATA[<p>这一篇对Git对象进行总结。</p>
 
 <p>首先看一个例子。</p>
 
-<p>{% codeblock %}</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># git log -1 --pretty=raw
+</span><span class='line'>commit 7213e9b40359e477080ed8feeb1120041cbd5ee8
+</span><span class='line'>tree de4ca4100e63695044400bf7e2b834d6b053a62f
+</span><span class='line'>parent 60c5a8067cadc872391a9890f89827264ca39015
+</span><span class='line'>author pacing &lt;wqy874654098@gmail.com> 1350305952 +0800
+</span><span class='line'>committer pacing &lt;wqy874654098@gmail.com> 1350305952 +0800
+</span><span class='line'>
+</span><span class='line'>    modify bye</span></code></pre></td></tr></table></div></figure>
 
-<h1>git log -1 &#8211;pretty=raw</h1>
 
-<p>commit 7213e9b40359e477080ed8feeb1120041cbd5ee8
-tree de4ca4100e63695044400bf7e2b834d6b053a62f
-parent 60c5a8067cadc872391a9890f89827264ca39015
-author pacing <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#x77;&#113;&#x79;&#56;&#55;&#52;&#x36;&#x35;&#52;&#x30;&#x39;&#56;&#x40;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x77;&#113;&#121;&#56;&#55;&#52;&#x36;&#53;&#52;&#48;&#57;&#x38;&#64;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a> 1350305952 +0800
-committer pacing <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#119;&#113;&#121;&#x38;&#55;&#52;&#x36;&#53;&#x34;&#x30;&#57;&#56;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">&#119;&#x71;&#x79;&#x38;&#55;&#52;&#54;&#x35;&#x34;&#48;&#x39;&#x38;&#x40;&#x67;&#x6d;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#109;</a> 1350305952 +0800</p>
-
-<pre><code>modify bye
-</code></pre>
-
-<p>{% endcodeblock %}
-可以看出来，在一次提交中，包含了三个SHA1哈希值来表示对象ID。</p>
+<p>可以看出来，在一次提交中，包含了三个SHA1哈希值来表示对象ID。</p>
 
 <p>再来一段代码。</p>
 
-<p>{% codeblock %}</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># git log -2 --pretty=raw
+</span><span class='line'>commit 7213e9b40359e477080ed8feeb1120041cbd5ee8
+</span><span class='line'>tree de4ca4100e63695044400bf7e2b834d6b053a62f
+</span><span class='line'>parent 60c5a8067cadc872391a9890f89827264ca39015
+</span><span class='line'>author pacing &lt;wqy874654098@gmail.com> 1350305952 +0800
+</span><span class='line'>committer pacing &lt;wqy874654098@gmail.com> 1350305952 +0800
+</span><span class='line'>
+</span><span class='line'>    modify bye
+</span><span class='line'>
+</span><span class='line'>commit 60c5a8067cadc872391a9890f89827264ca39015
+</span><span class='line'>tree c722a9a8a289e99fcf2be5f658a67c8d7d94e8f7
+</span><span class='line'>author pacing &lt;wqy874654098@gmail.com> 1350305791 +0800
+</span><span class='line'>committer pacing &lt;wqy874654098@gmail.com> 1350305791 +0800
+</span><span class='line'>
+</span><span class='line'>    first commit</span></code></pre></td></tr></table></div></figure>
 
-<h1>git log -2 &#8211;pretty=raw</h1>
 
-<p>commit 7213e9b40359e477080ed8feeb1120041cbd5ee8
-tree de4ca4100e63695044400bf7e2b834d6b053a62f
-parent 60c5a8067cadc872391a9890f89827264ca39015
-author pacing <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#119;&#x71;&#121;&#56;&#55;&#x34;&#54;&#53;&#x34;&#x30;&#x39;&#x38;&#64;&#103;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;">&#119;&#x71;&#121;&#x38;&#x37;&#x34;&#x36;&#x35;&#x34;&#x30;&#57;&#x38;&#x40;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a> 1350305952 +0800
-committer pacing <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#119;&#113;&#121;&#x38;&#x37;&#52;&#54;&#53;&#x34;&#x30;&#x39;&#56;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#119;&#x71;&#x79;&#x38;&#x37;&#52;&#54;&#x35;&#x34;&#48;&#57;&#x38;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a> 1350305952 +0800</p>
+<p>对比可以发现</p>
 
-<pre><code>modify bye
+<pre><code>commit ID值    对应了本次提交的唯一标识
+
+parent ID值    对应了本次提交的父提交（上一次提交的commit的ID值）
 </code></pre>
 
-<p>commit 60c5a8067cadc872391a9890f89827264ca39015
-tree c722a9a8a289e99fcf2be5f658a67c8d7d94e8f7
-author pacing <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#119;&#x71;&#x79;&#56;&#55;&#x34;&#x36;&#53;&#x34;&#x30;&#x39;&#56;&#x40;&#x67;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#109;">&#119;&#113;&#121;&#x38;&#x37;&#52;&#54;&#x35;&#x34;&#48;&#57;&#x38;&#64;&#103;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#109;</a> 1350305791 +0800
-committer pacing <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#119;&#113;&#121;&#x38;&#55;&#x34;&#54;&#53;&#x34;&#x30;&#x39;&#56;&#x40;&#103;&#109;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#109;">&#x77;&#x71;&#x79;&#x38;&#x37;&#52;&#x36;&#x35;&#x34;&#x30;&#x39;&#x38;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#111;&#109;</a> 1350305791 +0800</p>
+<p>而  tree  ID值    对应了本次提交所对应的目录树</p>
 
-<pre><code>first commit
-</code></pre>
+<p>git cat-file 这个命令可以来研究git对象ID。</p>
 
-<p>{% endcodeblock %}
-对比可以发现</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git cat-file -p ID值   #这个命令可以显示对象的内容
+</span><span class='line'>git cat-file -t ID值   #这个命令可以显示对象的类型</span></code></pre></td></tr></table></div></figure>
 
-<pre><code>commit ***ID值****    对应了本次提交的唯一标识
 
-parent ***ID值****    对应了本次提交的父提交（上一次提交的commit的ID值）
-</code></pre>
-
-<p>而  tree   <strong>*ID值</strong>**    对应了本次提交所对应的目录树</p>
-
-<p>git cat-file 这个命令可以来研究git对象ID。
-{% codeblock %}
-git cat-file -p <strong><strong>ID值</strong></strong>   #这个命令可以显示对象的内容
-git cat-file -t <strong><strong>ID值</strong></strong>   #这个命令可以显示对象的类型
-{% endblock %}
-由上面的例子，我们可以猜想到git版本库的大致结构。</p>
+<p>由上面的例子，我们可以猜想到git版本库的大致结构。</p>
 
 <p>前一次提交的commit和后一次提交的parent的对象ID相同，所有相邻两次提交都是如此，那么就构成了一条历史追踪链，也使得版本管理成为可能。</p>
 
@@ -290,32 +307,6 @@ git cat-file -t <strong><strong>ID值</strong></strong>   #这个命令可以显
 <h3>选择你的枷锁，然后痛并快乐着</h3>
 
 <h3>即使被锁着，也要在舞曲开始的时候让自己优雅，跳好人生这场舞</h3>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[post title]]></title>
-    <link href="http://pacing.github.com/blog/2012/10/12/post-title/"/>
-    <updated>2012-10-12T15:20:00+08:00</updated>
-    <id>http://pacing.github.com/blog/2012/10/12/post-title</id>
-    <content type="html"><![CDATA[<!-- more -->
-
-
-<h1>这是 H1</h1>
-
-<div><script src='https://gist.github.com/3877996.js?file='></script>
-<noscript><pre><code>public class C {
-  int a = b + 3;
-  int b = 5;
-}</code></pre></noscript></div>
-
-
-<h3>这是H3</h3>
-
-<p><span class='pullquote-right' data-pullquote='surround it like this'>
-Surround your paragraph with the pull quote tags. Then when you come to
-the text you want to pull, surround it like this and that&#8217;s all there is to it.
-</span></p>
 ]]></content>
   </entry>
   
