@@ -136,16 +136,21 @@
 <span class='line-number'>26</span>
 <span class='line-number'>27</span>
 <span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'># git init
 </span><span class='line'># touch welcome.txt
 </span><span class='line'># echo "Hello." >> welcome.txt
-</span><span class='line'># git add
-</span><span class='line'>.git/        welcome.txt
 </span><span class='line'># git add welcome.txt
 </span><span class='line'># git commit -m "first commit" 
 </span><span class='line'>[master (root-commit) 4bab956] first commit
 </span><span class='line'> 1 file changed, 1 insertion(+)
 </span><span class='line'> create mode 100644 welcome.txt
+</span><span class='line'>
+</span><span class='line'>============================================
+</span><span class='line'>
 </span><span class='line'># echo "Nice to meet you." >> welcome.txt
 </span><span class='line'># git diff
 </span><span class='line'>diff --git a/welcome.txt b/welcome.txt
@@ -155,6 +160,9 @@
 </span><span class='line'>@@ -1 +1,2 @@
 </span><span class='line'> Hello.
 </span><span class='line'>+Nice to meet you.
+</span><span class='line'>
+</span><span class='line'>============================================
+</span><span class='line'>
 </span><span class='line'># git commit -m "second commit"
 </span><span class='line'># On branch master
 </span><span class='line'># Changes not staged for commit:
@@ -237,6 +245,8 @@
         <a class="basic-alignment left" href="/blog/2012/10/14/gitzhi-lu-%28%5B%3F%5D-%29/" title="Previous Post: Git之路（一）">&laquo; Git之路（一）</a>
       
       
+        <a class="basic-alignment right" href="/blog/2012/10/16/gitzhi-lu-%28er-%29/" title="Next Post: Git之路（二）">Git之路（二） &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -254,6 +264,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/10/16/gitzhi-lu-%28er-%29/">Git之路（二）</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/10/15/gitzhi-lu-%28er-%29/">Git之路（二）</a>

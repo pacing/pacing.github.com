@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-10-16T22:42:31+08:00</updated>
+  <updated>2012-10-16T23:22:14+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -12,6 +12,81 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Git之路（二）]]></title>
+    <link href="http://pacing.github.com/blog/2012/10/16/gitzhi-lu-%28er-%29/"/>
+    <updated>2012-10-16T23:18:00+08:00</updated>
+    <id>http://pacing.github.com/blog/2012/10/16/gitzhi-lu-(er-)</id>
+    <content type="html"><![CDATA[<p>这一篇对Git对象进行总结。</p>
+
+<p>首先看一个例子。</p>
+
+<p>{% codeblock %}</p>
+
+<h1>git log -1 &#8211;pretty=raw</h1>
+
+<p>commit 7213e9b40359e477080ed8feeb1120041cbd5ee8
+tree de4ca4100e63695044400bf7e2b834d6b053a62f
+parent 60c5a8067cadc872391a9890f89827264ca39015
+author pacing <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#x77;&#113;&#x79;&#56;&#55;&#52;&#x36;&#x35;&#52;&#x30;&#x39;&#56;&#x40;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x77;&#113;&#121;&#56;&#55;&#52;&#x36;&#53;&#52;&#48;&#57;&#x38;&#64;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a> 1350305952 +0800
+committer pacing <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#119;&#113;&#121;&#x38;&#55;&#52;&#x36;&#53;&#x34;&#x30;&#57;&#56;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">&#119;&#x71;&#x79;&#x38;&#55;&#52;&#54;&#x35;&#x34;&#48;&#x39;&#x38;&#x40;&#x67;&#x6d;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#109;</a> 1350305952 +0800</p>
+
+<pre><code>modify bye
+</code></pre>
+
+<p>{% endcodeblock %}
+可以看出来，在一次提交中，包含了三个SHA1哈希值来表示对象ID。</p>
+
+<p>再来一段代码。</p>
+
+<p>{% codeblock %}</p>
+
+<h1>git log -2 &#8211;pretty=raw</h1>
+
+<p>commit 7213e9b40359e477080ed8feeb1120041cbd5ee8
+tree de4ca4100e63695044400bf7e2b834d6b053a62f
+parent 60c5a8067cadc872391a9890f89827264ca39015
+author pacing <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#119;&#x71;&#121;&#56;&#55;&#x34;&#54;&#53;&#x34;&#x30;&#x39;&#x38;&#64;&#103;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;">&#119;&#x71;&#121;&#x38;&#x37;&#x34;&#x36;&#x35;&#x34;&#x30;&#57;&#x38;&#x40;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a> 1350305952 +0800
+committer pacing <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#119;&#113;&#121;&#x38;&#x37;&#52;&#54;&#53;&#x34;&#x30;&#x39;&#56;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#119;&#x71;&#x79;&#x38;&#x37;&#52;&#54;&#x35;&#x34;&#48;&#57;&#x38;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a> 1350305952 +0800</p>
+
+<pre><code>modify bye
+</code></pre>
+
+<p>commit 60c5a8067cadc872391a9890f89827264ca39015
+tree c722a9a8a289e99fcf2be5f658a67c8d7d94e8f7
+author pacing <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#119;&#x71;&#x79;&#56;&#55;&#x34;&#x36;&#53;&#x34;&#x30;&#x39;&#56;&#x40;&#x67;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#109;">&#119;&#113;&#121;&#x38;&#x37;&#52;&#54;&#x35;&#x34;&#48;&#57;&#x38;&#64;&#103;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#109;</a> 1350305791 +0800
+committer pacing <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#119;&#113;&#121;&#x38;&#55;&#x34;&#54;&#53;&#x34;&#x30;&#x39;&#56;&#x40;&#103;&#109;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#109;">&#x77;&#x71;&#x79;&#x38;&#x37;&#52;&#x36;&#x35;&#x34;&#x30;&#x39;&#x38;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#111;&#109;</a> 1350305791 +0800</p>
+
+<pre><code>first commit
+</code></pre>
+
+<p>{% endcodeblock %}
+对比可以发现</p>
+
+<pre><code>commit ***ID值****    对应了本次提交的唯一标识
+
+parent ***ID值****    对应了本次提交的父提交（上一次提交的commit的ID值）
+</code></pre>
+
+<p>而  tree   <strong>*ID值</strong>**    对应了本次提交所对应的目录树</p>
+
+<p>git cat-file 这个命令可以来研究git对象ID。
+{% codeblock %}
+git cat-file -p <strong><strong>ID值</strong></strong>   #这个命令可以显示对象的内容
+git cat-file -t <strong><strong>ID值</strong></strong>   #这个命令可以显示对象的类型
+{% endblock %}
+由上面的例子，我们可以猜想到git版本库的大致结构。</p>
+
+<p>前一次提交的commit和后一次提交的parent的对象ID相同，所有相邻两次提交都是如此，那么就构成了一条历史追踪链，也使得版本管理成为可能。</p>
+
+<p>而每一个commit对象ID都对应了一个tree对象ID，对象ID又对个了自己的内容ID值。</p>
+
+<p>至此，我们在原理上相同了git版本库的工作流程，当然，实现很复杂。</p>
+
+<p>我们来慢慢解读。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Git之路（二）]]></title>
@@ -61,16 +136,21 @@
 <span class='line-number'>26</span>
 <span class='line-number'>27</span>
 <span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'># git init
 </span><span class='line'># touch welcome.txt
 </span><span class='line'># echo "Hello." >> welcome.txt
-</span><span class='line'># git add
-</span><span class='line'>.git/        welcome.txt
 </span><span class='line'># git add welcome.txt
 </span><span class='line'># git commit -m "first commit" 
 </span><span class='line'>[master (root-commit) 4bab956] first commit
 </span><span class='line'> 1 file changed, 1 insertion(+)
 </span><span class='line'> create mode 100644 welcome.txt
+</span><span class='line'>
+</span><span class='line'>============================================
+</span><span class='line'>
 </span><span class='line'># echo "Nice to meet you." >> welcome.txt
 </span><span class='line'># git diff
 </span><span class='line'>diff --git a/welcome.txt b/welcome.txt
@@ -80,6 +160,9 @@
 </span><span class='line'>@@ -1 +1,2 @@
 </span><span class='line'> Hello.
 </span><span class='line'>+Nice to meet you.
+</span><span class='line'>
+</span><span class='line'>============================================
+</span><span class='line'>
 </span><span class='line'># git commit -m "second commit"
 </span><span class='line'># On branch master
 </span><span class='line'># Changes not staged for commit:

@@ -5,15 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Git之路（一） - Pacing's Blog</title>
+  <title>Git之路（二） - Pacing's Blog</title>
   <meta name="author" content="Pacing">
 
   
-  <meta name="description" content="最近在学习Git，至于分布式版本控制系统Git的强大之处，我就不再赘述了，google之。
-现在开始我们Git世界的旅行吧 1.安装 1
-2
-sudo apt-get install git
-sudo apt-get install git-doc git-svn git-email git- &hellip;">
+  <meta name="description" content="这一篇对Git对象进行总结。 首先看一个例子。 {% codeblock %} git log -1 &#8211;pretty=raw commit 7213e9b40359e477080ed8feeb1120041cbd5ee8
+tree &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +19,7 @@ sudo apt-get install git-doc git-svn git-email git- &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://pacing.github.com/blog/2012/10/14/gitzhi-lu-%28%5B%3F%5D-%29/">
+  <link rel="canonical" href="http://pacing.github.com/blog/2012/10/16/gitzhi-lu-%28er-%29/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -72,7 +69,7 @@ sudo apt-get install git-doc git-svn git-email git- &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Git之路（一）</h1>
+      <h1 class="entry-title">Git之路（二）</h1>
     
     
       <p class="meta">
@@ -88,7 +85,7 @@ sudo apt-get install git-doc git-svn git-email git- &hellip;">
   
 
 
-<time datetime="2012-10-14T21:09:00+08:00" pubdate data-updated="true">Oct 14<span>th</span>, 2012</time>
+<time datetime="2012-10-16T23:18:00+08:00" pubdate data-updated="true">Oct 16<span>th</span>, 2012</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -97,65 +94,73 @@ sudo apt-get install git-doc git-svn git-email git- &hellip;">
   </header>
 
 
-<div class="entry-content"><p>最近在学习Git，至于分布式版本控制系统Git的强大之处，我就不再赘述了，google之。
-现在开始我们Git世界的旅行吧</p>
+<div class="entry-content"><p>这一篇对Git对象进行总结。</p>
 
-<p>1.安装</p>
+<p>首先看一个例子。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install git
-</span><span class='line'>sudo apt-get install git-doc git-svn git-email git-gui gitk</span></code></pre></td></tr></table></div></figure>
+<p>{% codeblock %}</p>
 
+<h1>git log -1 &#8211;pretty=raw</h1>
 
+<p>commit 7213e9b40359e477080ed8feeb1120041cbd5ee8
+tree de4ca4100e63695044400bf7e2b834d6b053a62f
+parent 60c5a8067cadc872391a9890f89827264ca39015
+author pacing <a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#x77;&#113;&#x79;&#56;&#55;&#52;&#x36;&#x35;&#52;&#x30;&#x39;&#56;&#x40;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;">&#x77;&#113;&#121;&#56;&#55;&#52;&#x36;&#53;&#52;&#48;&#57;&#x38;&#64;&#103;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a> 1350305952 +0800
+committer pacing <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#119;&#113;&#121;&#x38;&#55;&#52;&#x36;&#53;&#x34;&#x30;&#57;&#56;&#x40;&#x67;&#109;&#x61;&#x69;&#108;&#46;&#99;&#x6f;&#x6d;">&#119;&#x71;&#x79;&#x38;&#55;&#52;&#54;&#x35;&#x34;&#48;&#x39;&#x38;&#x40;&#x67;&#x6d;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#109;</a> 1350305952 +0800</p>
 
+<pre><code>modify bye
+</code></pre>
 
-<!-- more -->
+<p>{% endcodeblock %}
+可以看出来，在一次提交中，包含了三个SHA1哈希值来表示对象ID。</p>
 
+<p>再来一段代码。</p>
 
-<p>2.Git初始化</p>
+<p>{% codeblock %}</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git --version (查询git版本)
-</span><span class='line'>git config --global user.name "pacing"
-</span><span class='line'>git config --global user.email "email@x.com"</span></code></pre></td></tr></table></div></figure>
+<h1>git log -2 &#8211;pretty=raw</h1>
 
+<p>commit 7213e9b40359e477080ed8feeb1120041cbd5ee8
+tree de4ca4100e63695044400bf7e2b834d6b053a62f
+parent 60c5a8067cadc872391a9890f89827264ca39015
+author pacing <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#119;&#x71;&#121;&#56;&#55;&#x34;&#54;&#53;&#x34;&#x30;&#x39;&#x38;&#64;&#103;&#x6d;&#97;&#105;&#x6c;&#46;&#x63;&#x6f;&#109;">&#119;&#x71;&#121;&#x38;&#x37;&#x34;&#x36;&#x35;&#x34;&#x30;&#57;&#x38;&#x40;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#x63;&#111;&#109;</a> 1350305952 +0800
+committer pacing <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#119;&#113;&#121;&#x38;&#x37;&#52;&#54;&#53;&#x34;&#x30;&#x39;&#56;&#64;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#x6d;">&#119;&#x71;&#x79;&#x38;&#x37;&#52;&#54;&#x35;&#x34;&#48;&#57;&#x38;&#64;&#x67;&#x6d;&#97;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a> 1350305952 +0800</p>
 
-<p>3.开始第一次实践</p>
+<pre><code>modify bye
+</code></pre>
 
-<blockquote></blockquote>
+<p>commit 60c5a8067cadc872391a9890f89827264ca39015
+tree c722a9a8a289e99fcf2be5f658a67c8d7d94e8f7
+author pacing <a href="&#x6d;&#x61;&#x69;&#108;&#x74;&#x6f;&#x3a;&#119;&#x71;&#x79;&#56;&#55;&#x34;&#x36;&#53;&#x34;&#x30;&#x39;&#56;&#x40;&#x67;&#109;&#97;&#105;&#108;&#x2e;&#x63;&#111;&#109;">&#119;&#113;&#121;&#x38;&#x37;&#52;&#54;&#x35;&#x34;&#48;&#57;&#x38;&#64;&#103;&#109;&#97;&#105;&#x6c;&#x2e;&#99;&#x6f;&#109;</a> 1350305791 +0800
+committer pacing <a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#119;&#113;&#121;&#x38;&#55;&#x34;&#54;&#53;&#x34;&#x30;&#x39;&#56;&#x40;&#103;&#109;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#109;">&#x77;&#x71;&#x79;&#x38;&#x37;&#52;&#x36;&#x35;&#x34;&#x30;&#x39;&#x38;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#111;&#109;</a> 1350305791 +0800</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir demo
-</span><span class='line'>cd demo
-</span><span class='line'>git init</span></code></pre></td></tr></table></div></figure>
+<pre><code>first commit
+</code></pre>
 
+<p>{% endcodeblock %}
+对比可以发现</p>
 
-<p>以上步骤在git 1.6.5以上的版本可以用命令行 git init demo 代替</p>
+<pre><code>commit ***ID值****    对应了本次提交的唯一标识
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ls -aF</span></code></pre></td></tr></table></div></figure>
+parent ***ID值****    对应了本次提交的父提交（上一次提交的commit的ID值）
+</code></pre>
 
+<p>而  tree   <strong>*ID值</strong>**    对应了本次提交所对应的目录树</p>
 
-<p>这个命令行显示当前文件目录，其中有一个.git/隐藏目录,称为Git版本库</p>
+<p>git cat-file 这个命令可以来研究git对象ID。
+{% codeblock %}
+git cat-file -p <strong><strong>ID值</strong></strong>   #这个命令可以显示对象的内容
+git cat-file -t <strong><strong>ID值</strong></strong>   #这个命令可以显示对象的类型
+{% endblock %}
+由上面的例子，我们可以猜想到git版本库的大致结构。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>echo "Hello" > welcome.txt
-</span><span class='line'>git add welcome.txt
-</span><span class='line'>git commit -m "initialized"</span></code></pre></td></tr></table></div></figure>
+<p>前一次提交的commit和后一次提交的parent的对象ID相同，所有相邻两次提交都是如此，那么就构成了一条历史追踪链，也使得版本管理成为可能。</p>
 
+<p>而每一个commit对象ID都对应了一个tree对象ID，对象ID又对个了自己的内容ID值。</p>
 
-<p>4.总结一下</p>
+<p>至此，我们在原理上相同了git版本库的工作流程，当然，实现很复杂。</p>
 
-<p>步骤二，我们设置了该linux用户名下的Git用户名及邮箱地址</p>
-
-<p>步骤三，我们建立了一个demo文件夹（称之为git工作区）并在文件夹内初始化了git版本库，之后新建了内容为Hello的welcomet.xt文本文件。接下来git add welcome.txt命令将工作区文件welcome.txt提交到了暂存区，git commit -m &#8220;initialized&#8221;命令将暂存区文件welcome.txt提交到版本库。</p>
+<p>我们来慢慢解读。</p>
 </div>
 
 
@@ -178,7 +183,7 @@ sudo apt-get install git-doc git-svn git-email git- &hellip;">
   
 
 
-<time datetime="2012-10-14T21:09:00+08:00" pubdate data-updated="true">Oct 14<span>th</span>, 2012</time>
+<time datetime="2012-10-16T23:18:00+08:00" pubdate data-updated="true">Oct 16<span>th</span>, 2012</time>
       
 
 
@@ -195,10 +200,8 @@ sudo apt-get install git-doc git-svn git-email git- &hellip;">
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/10/12/ren-sheng-shi-%5B%3F%5D-chang-dai-zhao-jia-suo-de-wu-dao/" title="Previous Post: 人生是一场带着枷锁的舞蹈">&laquo; 人生是一场带着枷锁的舞蹈</a>
+        <a class="basic-alignment left" href="/blog/2012/10/15/gitzhi-lu-%28er-%29/" title="Previous Post: Git之路（二）">&laquo; Git之路（二）</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/10/15/gitzhi-lu-%28er-%29/" title="Next Post: Git之路（二）">Git之路（二） &raquo;</a>
       
     </p>
   </footer>
@@ -265,8 +268,8 @@ sudo apt-get install git-doc git-svn git-email git- &hellip;">
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://pacing.github.com/blog/2012/10/14/gitzhi-lu-%28%5B%3F%5D-%29/';
-        var disqus_url = 'http://pacing.github.com/blog/2012/10/14/gitzhi-lu-%28%5B%3F%5D-%29/';
+        var disqus_identifier = 'http://pacing.github.com/blog/2012/10/16/gitzhi-lu-%28er-%29/';
+        var disqus_url = 'http://pacing.github.com/blog/2012/10/16/gitzhi-lu-%28er-%29/';
         var disqus_script = 'embed.js';
       
     (function () {
