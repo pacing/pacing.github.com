@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-10-16T23:32:08+08:00</updated>
+  <updated>2012-10-17T23:10:14+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Git之路（总结篇）]]></title>
+    <link href="http://pacing.github.com/blog/2012/10/17/gitzhi-lu-%28zong-jie-pian-%29/"/>
+    <updated>2012-10-17T23:02:00+08:00</updated>
+    <id>http://pacing.github.com/blog/2012/10/17/gitzhi-lu-(zong-jie-pian-)</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Git之路（四）]]></title>
+    <link href="http://pacing.github.com/blog/2012/10/17/gitzhi-lu-%28si-%29/"/>
+    <updated>2012-10-17T22:24:00+08:00</updated>
+    <id>http://pacing.github.com/blog/2012/10/17/gitzhi-lu-(si-)</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p>这一篇介绍Git重置命令和Git检出命令。</p>
+
+<p>Git重置命令：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git reset --hard HEAD^</span></code></pre></td></tr></table></div></figure>
+
+
+<p>用例中的命令可以将分支的master游标重置到当前提交的父提交上，也就是将版本库倒退到之前一个时间节点上，让项目重新从那个时间节点上开始开发。
+Git 重置命令的挽救工作：</p>
+
+<p>如果你执行了一次Git重置命令，但是发现这次重置反而造成了更大的损失，这是后你又想回到未来，这时候，就需要reglog来挽救</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git reflog show master | head -5
+</span><span class='line'>git reset --hard master@{1}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样，我们的版本库又可以回到开始时候的节点了。</p>
+
+<p>Git检出命令</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout something</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Git检出命令可以分离头指针，即HEAD。HEAD的指向为我们确定了下一次提交的父提交的位置，因此，当HEAD处于不同节点时，我们将产生不同的分支。在上一段代码中，something的终极指示是一个commit对象ID，而这个something可以是branch，可以是tag，或者其他。</p>
+
+<p>挽救分离头指针</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git branch -v   #确认你处于目标分支
+</span><span class='line'>git merge ID   #将ID对应提交合并到你的目标分支，这样会产生两个父提交</span></code></pre></td></tr></table></div></figure>
+
+
+<p>后记：</p>
+
+<p>这篇文章里我为大家建立了一个对git的检出命令和重置命令的初步认识，要完全学会使用这两个命令，需要在了解两个命令的深入用法。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Git之路（三）]]></title>
@@ -296,14 +356,12 @@ parent ID值    对应了本次提交的父提交（上一次提交的commit的I
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[人生是一场带着枷锁的舞蹈]]></title>
+    <title type="html"><![CDATA[人生是一场戴着枷锁的舞蹈]]></title>
     <link href="http://pacing.github.com/blog/2012/10/12/ren-sheng-shi-%5B%3F%5D-chang-dai-zhao-jia-suo-de-wu-dao/"/>
     <updated>2012-10-12T16:43:00+08:00</updated>
     <id>http://pacing.github.com/blog/2012/10/12/ren-sheng-shi-[?]-chang-dai-zhao-jia-suo-de-wu-dao</id>
     <content type="html"><![CDATA[<!--more -->
 
-
-<p><video width='640' height='320' preload='none' controls poster=' http://s3.imathis.com/video/zero-to-fancy-buttons.png'><source src='http://s3.imathis.com/video/zero-to-fancy-buttons.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'/></video></p>
 
 <h3>没有人可以逃脱枷锁</h3>
 
