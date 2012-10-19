@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-10-20T00:39:15+08:00</updated>
+  <updated>2012-10-20T00:41:46+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -12,6 +12,145 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails路由学习笔记]]></title>
+    <link href="http://pacing.github.com/blog/2012/10/20/rails/"/>
+    <updated>2012-10-20T17:49:00+08:00</updated>
+    <id>http://pacing.github.com/blog/2012/10/20/rails</id>
+    <content type="html"><![CDATA[<p>Rails中的路由系统有两个功能。</p>
+
+<p>第一个功能：检查请求的URL和判断应该调用那个应用程序的动作来处理请求。</p>
+
+<p>第二个功能：根据视图模板和控制器中URL生成语法生成URL。</p>
+
+<!--more-->
+
+
+<h1>以下是一些例子：</h1>
+
+<p>1.典型的路由信息</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>map.connect 'myrecipes/:ingredient'
+</span><span class='line'>               :controller => "recipes",
+</span><span class='line'>               :action => "show"</span></code></pre></td></tr></table></div></figure>
+
+
+<p> 在这个例子里，有几点需要指出：</p>
+
+<ol>
+<li><p>静态字符串： myrecipes （可以为任意的字符串，当然要避免冲突）</p></li>
+<li><p>通配符：    :ingredient (比如:id/:name/&#8230;&#8230;)</p></li>
+<li><p>控制器名称及动作名称</p></li>
+</ol>
+
+
+<p> 以http://localhost:3000/myrecipes/1这个URL为例</p>
+
+<p> 根据ingedient路由规则，recipes控制器的show动作将被执行，并且会向动作传递params[:ingredient]=2参量值。当然，:ingredient也可以是:id,:name&#8230;&#8230;</p>
+
+<p>2.默认的路由信息</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>map.connect ':controller/:action/:id'</span></code></pre></td></tr></table></div></figure>
+
+
+<p> 这一条语句位于route.rb文件的最末尾，当其他的路由信息都没有被匹配到的时候，这条语句将会被执行。</p>
+
+<p> 以下面这个URL请求为例：http://localhost:3000/auctions/show/1</p>
+
+<p> :controller/:action/:id    对应了  auctions/show/1   ,一目了然，params[:id]被传入到auctions控制器的show动作中，并且执行了这个动作。</p>
+
+<p> 这个URL是由类似这样一条语句生成的：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%= linke_to item.descrition ,:controller => "auctions" ,:action => "show",:id => item.id% %></span></code></pre></td></tr></table></div></figure>
+
+
+<p>3.空的路由信息</p>
+
+<p> 当静态字符串为空的时候，我们就得到了空的路由信息，但是，在最新的route.rb中，空的路由信息已经被注释掉了，取而代之的是，我们以类似于这个形式的语句定义空语句：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>map.root :controller => "homepage"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>4.1示例的延伸。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>map.connect 'myrecipes/:user_id/:id'
+</span><span class='line'>               :controller => "recipes",
+</span><span class='line'>               :action => "show"</span></code></pre></td></tr></table></div></figure>
+
+
+<p> 这条示例的含义大家自己琢磨</p>
+
+<p>5.路由中的通配字段</p>
+
+<p> 对于这样一条链接：/files/list/base/books/ficiton/dichens</p>
+
+<p> 想要用/files/list动作访问所有的4个保留字段，但是有时或许是3个，或者更多更少。</p>
+
+<p> 这个愿望可以通过通配字段来实现：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>map.connect 'fiels/list/*specs'
+</span><span class='line'>       def list
+</span><span class='line'>           specs = params[:specs]  #e.g["base","books","fiction","dichens"]   
+</span><span class='line'>       end</span></code></pre></td></tr></table></div></figure>
+
+
+<p> 可以看出来，params[:specs] 拥有一个URL区域数组。
+ 路由通配字段必须放在路由模式字符串的最后</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>map.connect 'files/list/*specs/dickens'  #这样做将无法工作！！！</span></code></pre></td></tr></table></div></figure>
+
+
+<p>6.具名路由</p>
+
+<p> 具名路由简化了开发者的操作。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>map.help  'help'
+</span><span class='line'>                   :controller => 'main'
+</span><span class='line'>                   :action => 'show'</span></code></pre></td></tr></table></div></figure>
+
+
+<p> 根据上述路由信息</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%= link_to 'Help!',help_path%></span></code></pre></td></tr></table></div></figure>
+
+
+<p> 将生成这样的URL:    your-website/main/show</p>
+
+<p>7.REST和RESTful</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>map.resources  :autions</span></code></pre></td></tr></table></div></figure>
+
+
+<p> 小结：</p>
+
+<p> 在整个Rails中，路由可能算是一个比较难的部分。本文罗列了我在Rails学习时候的一些总结，希望可以对像我这样的Rails新手提供一些帮助。
+ 最后一个示例中，REST是值得大书特书的部分，大家可以google跟多相关的资料，我就不作解释了。</p>
+
+<p> 文章中措辞不当的部分，欢迎大家指出。</p>
+
+<p> 相关资源：  《THE RAILS WAY》（中文译名：Rails 之道）</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Git之路（总结篇）]]></title>
@@ -294,145 +433,6 @@ parent ID值    对应了本次提交的父提交（上一次提交的commit的I
 <p>暂存区和HEAD比较：git diff &#8211;cached</p>
 
 <p>工作区和HEAD的比较： git diff HEAD</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Rails路由学习笔记]]></title>
-    <link href="http://pacing.github.com/blog/2012/10/15/railslu-you-xue-xi-bi-ji/"/>
-    <updated>2012-10-15T17:49:00+08:00</updated>
-    <id>http://pacing.github.com/blog/2012/10/15/railslu-you-xue-xi-bi-ji</id>
-    <content type="html"><![CDATA[<p>Rails中的路由系统有两个功能。</p>
-
-<p>第一个功能：检查请求的URL和判断应该调用那个应用程序的动作来处理请求。</p>
-
-<p>第二个功能：根据视图模板和控制器中URL生成语法生成URL。</p>
-
-<!--more-->
-
-
-<h1>以下是一些例子：</h1>
-
-<p>1.典型的路由信息</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>map.connect 'myrecipes/:ingredient'
-</span><span class='line'>               :controller => "recipes",
-</span><span class='line'>               :action => "show"</span></code></pre></td></tr></table></div></figure>
-
-
-<p> 在这个例子里，有几点需要指出：</p>
-
-<ol>
-<li><p>静态字符串： myrecipes （可以为任意的字符串，当然要避免冲突）</p></li>
-<li><p>通配符：    :ingredient (比如:id/:name/&#8230;&#8230;)</p></li>
-<li><p>控制器名称及动作名称</p></li>
-</ol>
-
-
-<p> 以http://localhost:3000/myrecipes/1这个URL为例</p>
-
-<p> 根据ingedient路由规则，recipes控制器的show动作将被执行，并且会向动作传递params[:ingredient]=2参量值。当然，:ingredient也可以是:id,:name&#8230;&#8230;</p>
-
-<p>2.默认的路由信息</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>map.connect ':controller/:action/:id'</span></code></pre></td></tr></table></div></figure>
-
-
-<p> 这一条语句位于route.rb文件的最末尾，当其他的路由信息都没有被匹配到的时候，这条语句将会被执行。</p>
-
-<p> 以下面这个URL请求为例：http://localhost:3000/auctions/show/1</p>
-
-<p> :controller/:action/:id    对应了  auctions/show/1   ,一目了然，params[:id]被传入到auctions控制器的show动作中，并且执行了这个动作。</p>
-
-<p> 这个URL是由类似这样一条语句生成的：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%= linke_to item.descrition ,:controller => "auctions" ,:action => "show",:id => item.id% %></span></code></pre></td></tr></table></div></figure>
-
-
-<p>3.空的路由信息</p>
-
-<p> 当静态字符串为空的时候，我们就得到了空的路由信息，但是，在最新的route.rb中，空的路由信息已经被注释掉了，取而代之的是，我们以类似于这个形式的语句定义空语句：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>map.root :controller => "homepage"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>4.1示例的延伸。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>map.connect 'myrecipes/:user_id/:id'
-</span><span class='line'>               :controller => "recipes",
-</span><span class='line'>               :action => "show"</span></code></pre></td></tr></table></div></figure>
-
-
-<p> 这条示例的含义大家自己琢磨</p>
-
-<p>5.路由中的通配字段</p>
-
-<p> 对于这样一条链接：/files/list/base/books/ficiton/dichens</p>
-
-<p> 想要用/files/list动作访问所有的4个保留字段，但是有时或许是3个，或者更多更少。</p>
-
-<p> 这个愿望可以通过通配字段来实现：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>map.connect 'fiels/list/*specs'
-</span><span class='line'>       def list
-</span><span class='line'>           specs = params[:specs]  #e.g["base","books","fiction","dichens"]   
-</span><span class='line'>       end</span></code></pre></td></tr></table></div></figure>
-
-
-<p> 可以看出来，params[:specs] 拥有一个URL区域数组。
- 路由通配字段必须放在路由模式字符串的最后</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>map.connect 'files/list/*specs/dickens'  #这样做将无法工作！！！</span></code></pre></td></tr></table></div></figure>
-
-
-<p>6.具名路由</p>
-
-<p> 具名路由简化了开发者的操作。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>map.help  'help'
-</span><span class='line'>                   :controller => 'main'
-</span><span class='line'>                   :action => 'show'</span></code></pre></td></tr></table></div></figure>
-
-
-<p> 根据上述路由信息</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%= link_to 'Help!',help_path%></span></code></pre></td></tr></table></div></figure>
-
-
-<p> 将生成这样的URL:    your-website/main/show</p>
-
-<p>7.REST和RESTful</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>map.resources  :autions</span></code></pre></td></tr></table></div></figure>
-
-
-<p> 小结：</p>
-
-<p> 在整个Rails中，路由可能算是一个比较难的部分。本文罗列了我在Rails学习时候的一些总结，希望可以对像我这样的Rails新手提供一些帮助。
- 最后一个示例中，REST是值得大书特书的部分，大家可以google跟多相关的资料，我就不作解释了。</p>
-
-<p> 文章中措辞不当的部分，欢迎大家指出。</p>
-
-<p> 相关资源：  《THE RAILS WAY》（中文译名：Rails 之道）</p>
 ]]></content>
   </entry>
   
