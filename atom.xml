@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-10-20T00:41:46+08:00</updated>
+  <updated>2012-10-26T21:02:22+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[设计模式]]></title>
+    <link href="http://pacing.github.com/blog/2012/10/26/she-ji-mo-shi/"/>
+    <updated>2012-10-26T20:48:00+08:00</updated>
+    <id>http://pacing.github.com/blog/2012/10/26/she-ji-mo-shi</id>
+    <content type="html"><![CDATA[<p>最近这两天在看ruby设计模式这本书，这本书是我这样一个学生来说是一次饕餮盛宴。这本书被我反反复复地翻了好几遍，代码也都敲到了计算机里面，一个词，受益匪浅。</p>
+
+<!--more-->
+
+
+<p>设计模式有几个核心的原则：</p>
+
+<p>1.把变和不变的事物分开。</p>
+
+<p>2.针对接口编程而不对实现编程。</p>
+
+<p>3.组合优于继承</p>
+
+<p>4.委托、委托、委托。</p>
+
+<p>以上是四人组的设计模式的不全面的总结。</p>
+
+<p>另外，ruby设计模式的作者提出了一个观点：</p>
+
+<p>你不会用到它。意思是，专注于你现在所要实现的功能上，不要想其他的，你现在设想好的功能，在将来不一定会用到。</p>
+
+<p>这大概是在信息大量涌现，眼花缭乱的时代，我们每个人都应该具备的能力，而不仅仅在编程时候要记得。
+专注眼前之事，做好正在做的事情，不要想太多，否则心慌。</p>
+
+<p>另外，记录一下我学习中想到的一句话：</p>
+
+<p>解耦，重用代码。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails路由学习笔记]]></title>
@@ -500,24 +535,6 @@ parent ID值    对应了本次提交的父提交（上一次提交的commit的I
 <p>步骤二，我们设置了该linux用户名下的Git用户名及邮箱地址</p>
 
 <p>步骤三，我们建立了一个demo文件夹（称之为git工作区）并在文件夹内初始化了git版本库，之后新建了内容为Hello的welcomet.xt文本文件。接下来git add welcome.txt命令将工作区文件welcome.txt提交到了暂存区，git commit -m &#8220;initialized&#8221;命令将暂存区文件welcome.txt提交到版本库。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[人生是一场戴着枷锁的舞蹈]]></title>
-    <link href="http://pacing.github.com/blog/2012/10/12/ren-sheng-shi-%5B%3F%5D-chang-dai-zhao-jia-suo-de-wu-dao/"/>
-    <updated>2012-10-12T16:43:00+08:00</updated>
-    <id>http://pacing.github.com/blog/2012/10/12/ren-sheng-shi-[?]-chang-dai-zhao-jia-suo-de-wu-dao</id>
-    <content type="html"><![CDATA[<!--more -->
-
-
-<h3>没有人可以逃脱枷锁</h3>
-
-<h3>人只能选择枷锁的类型</h3>
-
-<h3>选择你的枷锁，然后痛并快乐着</h3>
-
-<h3>即使被锁着，也要在舞曲开始的时候让自己优雅，跳好人生这场舞</h3>
 ]]></content>
   </entry>
   
