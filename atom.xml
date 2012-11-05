@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-10-30T23:37:54+08:00</updated>
+  <updated>2012-11-05T23:07:53+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[总结一次]]></title>
+    <link href="http://pacing.github.com/blog/2012/11/05/zong-jie-%5B%3F%5D-ci/"/>
+    <updated>2012-11-05T22:50:00+08:00</updated>
+    <id>http://pacing.github.com/blog/2012/11/05/zong-jie-[?]-ci</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p>最近在学习web前端的一些概念，同时了解了web信息架构方面的知识。</p>
+
+<p>内容包括jabascript，jquery，yui，xml，dom，ajax，json，soap，wsdl等等，学习的途径主要是两种，书和网路。</p>
+
+<p>网络<a href="http://www.w3school.com.cn/">w3c school </a>,书主要是根据w3c上面的内容对学习到的知识进行加深理解。</p>
+
+<p>下一阶段的工作内容是进行ajax的实际练习阶段，并开始ROR项目的深入开发。</p>
+
+<p>同时进行的事情：痛苦的大三要学太多的东西，最近一段时间，正在慢慢地去赶上老师的进度，是一个艰巨的任务。</p>
+
+<p>最后，介绍基本其他方面的书，我最近读到的几本书：生死疲劳，白狗秋千架，拆掉思维里的墙，暗时间，我是一直IT小小鸟。</p>
+
+<p>正在读的书：怎样阅读一本书（这个应该最早读，但是发现的有点晚）</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[认识自我]]></title>
