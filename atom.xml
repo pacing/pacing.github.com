@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-11-05T23:07:53+08:00</updated>
+  <updated>2012-12-14T15:17:52+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -12,6 +12,58 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[vim.ruby]]></title>
+    <link href="http://pacing.github.com/blog/2012/12/14/vim-dot-ruby/"/>
+    <updated>2012-12-14T14:43:00+08:00</updated>
+    <id>http://pacing.github.com/blog/2012/12/14/vim-dot-ruby</id>
+    <content type="html"><![CDATA[<p>&lt;&#8211;!more&#8211;></p>
+
+<pre><code>最近一段时间被考试折磨地焦头烂额，前一次总算告一段落，今天学习了一些vim方面的rails操作技巧。记录一下，希望对浏览博客的人有所启发。记录的只是我觉得非常有用的一些功能，而值得诸位注意的地方，不在于这些技巧，更多的在于，我发现这些工具的意识，以及发现工具的方法，共勉。
+
+这是我遇到的一些vim插件：
+
+NERD tree|[CtrlP](http://kien.github.com/ctrlp.vim/)|[rails.vim](http://www.vim.org/scripts/script.php?script_id=1567)|[snipMate](http://www.vim.org/scripts/script.php?script_id=2540)|[Ctags](http://ctags.sourceforge.net/)
+
+第一个插件很有用，但是个人觉得这对程序员是一种伤害，他剥夺了你对项目的整体把握的机会，所以我尽量不用，也许只有在最开始阅读别人的源代码时会频繁使用，以求对项目有一个整体把握。
+
+CtrlP插件中有一个功能我现在会经常用到：CtrlP之后对文件的检索，帮助你快速找到需要的文件
+
+raisl.vim插件听说的很早，我现在用到的几个功能：1.RV/RS。2.find。3.gf。4.:Rake *。这个插件需要继续学习，相信有更多的干货
+
+snipMate插件对程序员的生产效率有极大的提高。当你进入test.rb之后，输入do，然后按Tab键，则自动生成do  |condition|  end语句。当然，snipMate不仅仅针对ruby。
+
+Ctags是绝对的利器，我目前还没有开始使用，所以没有什么具体的认识。不过，对于一个vim程序员来说，Ctags是阅读源码的利器。
+
+vim的技巧很多，需要经常使用，根据自身需要使用适当插件的合适功能。但是，任何事情都是有度，如果你盲目地追求使用插件的功能，而对你来说其实没有用的必要，那就陪大了。
+
+我的邮箱：wqy874654098@126.com
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[值得高兴的事情]]></title>
+    <link href="http://pacing.github.com/blog/2012/11/15/zhi-de-gao-xing-de-shi-qing/"/>
+    <updated>2012-11-15T16:18:00+08:00</updated>
+    <id>http://pacing.github.com/blog/2012/11/15/zhi-de-gao-xing-de-shi-qing</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p>前两天，读了一本书————《拆掉思维里的墙》。</p>
+
+<p>大多数常人，每每会感到纠结，纠结的无非是选择太多了，选择了其中一种，又害怕选择错误，害怕要承担的后果，又考虑如果选择另一种可能的结果会不会更好呢？于是乎，很多人的大脑里面其实充满了纠结。纠结可以归结为害怕，害怕为做出的选择付出一定的代价，害怕做出选择后自身努力不够（努力不够，是因为过了这个纠结，还有另一个纠结会困扰他。）。</p>
+
+<p>大多数人的智力生来相差无几，但是后天发展却各有不同，在自身期待发展的领域，如果能够全身心的投入进去，那么，这个人在这个领域的能力水平会突飞猛进，最终有所成就。古今中外，凡是有所成就的人，无论是哪个领域的人，没有哪一个不是专注的人。</p>
+
+<p>专注的重要性，可能比我们意识到的重要程度更重要。其实，大家都懂得，如果把我们拿去玩的时间用来工作学习，我们会做的比现在更好。那么，如果把潜意识里无时无刻不在的纠结替换成我们所专注的事情，那么，潜意识可能不知不觉已经帮我们在自己的专业领域提高了不知多少倍了。然而，专注很难。所以，成大事者几人。</p>
+
+<p>拆掉思维里的墙，告诉我们，摒弃日常生活中对小事情的无谓担心，放下潜意识里的包袱，专心的做你选择了的事情，你可以做的很好。</p>
+
+<p>有什么比可以专注的时候更让人高兴呢？我现在很高兴。Go on！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[总结一次]]></title>
