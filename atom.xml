@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-12-14T15:24:56+08:00</updated>
+  <updated>2012-12-14T15:28:25+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -21,26 +21,25 @@
     <content type="html"><![CDATA[<!--more-->
 
 
-<pre><code>最近一段时间被考试折磨地焦头烂额，前一次总算告一段落，今天学习了一些vim方面的rails操作技巧。记录一下，希望对浏览博客的人有所启发。记录的只是我觉得非常有用的一些功能，而值得诸位注意的地方，不在于这些技巧，更多的在于，我发现这些工具的意识，以及发现工具的方法，共勉。
+<p>最近一段时间被考试折磨地焦头烂额，前一次总算告一段落，今天学习了一些vim方面的rails操作技巧。记录一下，希望对浏览博客的人有所启发。记录的只是我觉得非常有用的一些功能，而值得诸位注意的地方，不在于这些技巧，更多的在于，我发现这些工具的意识，以及发现工具的方法，共勉。</p>
 
-这是我遇到的一些vim插件：
+<p>这是我遇到的一些vim插件：</p>
 
-NERD tree|[CtrlP](http://kien.github.com/ctrlp.vim/)|[rails.vim](http://www.vim.org/scripts/script.php?script_id=1567)|[snipMate](http://www.vim.org/scripts/script.php?script_id=2540)|[Ctags](http://ctags.sourceforge.net/)
+<p>NERD tree|<a href="http://kien.github.com/ctrlp.vim/">CtrlP</a>|<a href="http://www.vim.org/scripts/script.php?script_id=1567">rails.vim</a>|<a href="http://www.vim.org/scripts/script.php?script_id=2540">snipMate</a>|<a href="http://ctags.sourceforge.net/">Ctags</a></p>
 
-第一个插件很有用，但是个人觉得这对程序员是一种伤害，他剥夺了你对项目的整体把握的机会，所以我尽量不用，也许只有在最开始阅读别人的源代码时会频繁使用，以求对项目有一个整体把握。
+<p>第一个插件很有用，但是个人觉得这对程序员是一种伤害，他剥夺了你对项目的整体把握的机会，所以我尽量不用，也许只有在最开始阅读别人的源代码时会频繁使用，以求对项目有一个整体把握。</p>
 
-CtrlP插件中有一个功能我现在会经常用到：CtrlP之后对文件的检索，帮助你快速找到需要的文件
+<p>CtrlP插件中有一个功能我现在会经常用到：CtrlP之后对文件的检索，帮助你快速找到需要的文件</p>
 
-raisl.vim插件听说的很早，我现在用到的几个功能：1.RV/RS。2.find。3.gf。4.:Rake *。这个插件需要继续学习，相信有更多的干货
+<p>raisl.vim插件听说的很早，我现在用到的几个功能：1.RV/RS。2.find。3.gf。4.:Rake *。这个插件需要继续学习，相信有更多的干货</p>
 
-snipMate插件对程序员的生产效率有极大的提高。当你进入test.rb之后，输入do，然后按Tab键，则自动生成do  |condition|  end语句。当然，snipMate不仅仅针对ruby。
+<p>snipMate插件对程序员的生产效率有极大的提高。当你进入test.rb之后，输入do，然后按Tab键，则自动生成do  |condition|  end语句。当然，snipMate不仅仅针对ruby。</p>
 
-Ctags是绝对的利器，我目前还没有开始使用，所以没有什么具体的认识。不过，对于一个vim程序员来说，Ctags是阅读源码的利器。
+<p>Ctags是绝对的利器，我目前还没有开始使用，所以没有什么具体的认识。不过，对于一个vim程序员来说，Ctags是阅读源码的利器。</p>
 
-vim的技巧很多，需要经常使用，根据自身需要使用适当插件的合适功能。但是，任何事情都是有度，如果你盲目地追求使用插件的功能，而对你来说其实没有用的必要，那就陪大了。
+<p>vim的技巧很多，需要经常使用，根据自身需要使用适当插件的合适功能。但是，任何事情都是有度，如果你盲目地追求使用插件的功能，而对你来说其实没有用的必要，那就陪大了。</p>
 
-我的邮箱：wqy874654098@126.com
-</code></pre>
+<p>我的邮箱：wqy874654098@126.com</p>
 ]]></content>
   </entry>
   
