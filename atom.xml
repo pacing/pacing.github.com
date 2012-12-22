@@ -4,7 +4,7 @@
   <title><![CDATA[Pacing's Blog]]></title>
   <link href="http://pacing.github.com/atom.xml" rel="self"/>
   <link href="http://pacing.github.com/"/>
-  <updated>2012-12-14T15:28:25+08:00</updated>
+  <updated>2012-12-23T02:45:02+08:00</updated>
   <id>http://pacing.github.com/</id>
   <author>
     <name><![CDATA[Pacing]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[博大胸怀]]></title>
+    <link href="http://pacing.github.com/blog/2012/12/23/bo-da-xiong-huai/"/>
+    <updated>2012-12-23T02:24:00+08:00</updated>
+    <id>http://pacing.github.com/blog/2012/12/23/bo-da-xiong-huai</id>
+    <content type="html"><![CDATA[<!--more-->
+
+
+<p> 对于一个男人来说，所要具备的能力太多太多，我们有二十年的时间去积累各种各样的能力，让自己变得勇敢，有担当，具有领导力，拥有独特见解等等，总之，太多太多的东西决定了我们是否会成功。</p>
+
+<p>从这一篇文章开始，我将开始对自己的认识之路。一旦是一片评价自己的文章，必定会出现一个缺点和一个优点。缺点改正，优点保持。</p>
+
+<p>优点：言出必践。我是一个说话算话的人，无论任何事，一旦说出口，必定会全力以赴，实现自己的诺言。</p>
+
+<p>缺点：胸怀不够博大。从小开始，我一直自认为是一个很有灵性的人，无论什么东西，总是能够窥探其究竟。但是其实很多事情，需要有人指点，没有人指点，当你自己认识到的时候，你需要花很长时间去修补。我的心胸不够博大，可能是在高中的时候意识到的，但是，当时并没有修身的前提，而自身也不够坚持，一直没有能够彻底地让自己心胸宽广起来。相反，在很多时候，太苛刻，过于追究细节等等，视野也越来越小。好在，现在还为时不晚。</p>
+
+<p>海纳百川，有容乃大。对于我来说，能理解十之六七，相信，很多问题都会迎刃而解的。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[vim.ruby]]></title>
